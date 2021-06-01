@@ -12,6 +12,8 @@ class Program
         Raylib.InitWindow(1900, 1000, "Elias Paint");
         Raylib.SetTargetFPS(240);
 
+        Color[,] canvas = new Color[Raylib.GetScreenWidth(), Raylib.GetScreenHeight()];
+
         Vector2 tempVector = new Vector2();
         bool secondPos = false;
         Color currentColor = Color.BLACK;
@@ -52,6 +54,15 @@ class Program
             }
 
             Raylib.ClearBackground(Color.WHITE);
+
+            // for (int i = 100; i < canvas.GetLength(0); i++)
+            // {
+            //     for (int x = 100; x < canvas.GetLength(1); x++)
+            //     {
+            //         if (canvas[i, x].Equals(Color.WHITE))
+            //             Raylib.DrawPixel(i, x, canvas[i, x]);
+            //     }
+            // }
             DrawScene();
             Raylib.EndDrawing();
         }
@@ -75,14 +86,14 @@ class Program
         const float EPSILON = 0.01f;
 
 
-        float a = (v2.Y - v1.Y) / (v2.X - v1.X);
-        float b = v1.Y - a * v1.X;
-        if (Math.Abs(vm.Y - (a * vm.X + b)) < EPSILON)
-        {
-            return true;
-        }
+        // float a = (v2.Y - v1.Y) / (v2.X - v1.X);
+        // float b = v1.Y - a * v1.X;
+        // if (Math.Abs(vm.Y - (a * vm.X + b)) < EPSILON)
+        // {
+        //     return true;
+        // }
 
-        return false;
+        // return false;
         float gradient = (v1.Y - v2.Y) / (v2.X - v1.X);
 
         float c = v1.Y - gradient * v1.X;
